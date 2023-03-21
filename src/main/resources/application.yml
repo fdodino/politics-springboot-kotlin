@@ -1,35 +1,26 @@
 spring:
   #   base de datos posta
 
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/politics
-#    username: postgres
-#    password: postgres
-#    driver-class-name: org.postgresql.Driver
-
-  database: H2
-
-  h2:
-    console:
-      enabled: true
-      path: /h2
-
   datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://dpg-cgd37nu4dad6fr0ikjh0-a.oregon-postgres.render.com:5432/politics
+    username: admin
+    password: QLcHKv9p6brNYlr7aCkrbPsdec58GwgN
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     open-in-view: false
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
 
+server:
+  error:
+    include-message: always
+
 # Para activar el Trace
 logging:
   level:
-    root: DEBUG
+    root: INFO

@@ -24,7 +24,7 @@ class Zona {
 
     @Column(length=150)
     @JsonView(View.Zona.Plana::class, View.Zona.Detalle::class)
-    lateinit var descripcion: String
+    var descripcion: String = ""
 
     @OneToMany(fetch= FetchType.LAZY)
     @JsonView(View.Zona.Detalle::class)

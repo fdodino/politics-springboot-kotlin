@@ -16,8 +16,8 @@ RUN gradle bootJar --no-daemon
 # ejecutamos el JAR resultante
 FROM amazoncorretto:17.0.5
 EXPOSE 8080
-    COPY --from=build /home/gradle/src/build/libs/eg-politics-springboot-kotlin-0.0.1-SNAPSHOT.jar /app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar", "--args", "--spring.profiles.active=local"]
+COPY --from=build /home/gradle/src/build/libs/eg-politics-springboot-kotlin-0.0.1-SNAPSHOT.jar /app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 # Se buildea con
 # docker build . -t politics-exe

@@ -33,7 +33,7 @@ El archivo Dockerfile que tiene como entrypoint el siguiente comando:
 
 ```Dockerfile
 # Levantamos el main de Spring Boot
-CMD ./gradlew clean bootRun
+CMD ./gradlew clean bootJar
 ```
 
 que es el que permite levantar por consola nuestro main.
@@ -47,7 +47,7 @@ docker build -t politics-exe .
 Lo podemos probar localmente:
 
 ```bash
-docker run politics-exe
+docker run -p 8080:8080 --name politics-app politics-exe
 ```
 
 ## Deploy en Render

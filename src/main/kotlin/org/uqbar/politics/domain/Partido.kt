@@ -24,7 +24,7 @@ abstract class Partido {
     var id: Long? = null
 
     @Column(length=150)
-    open lateinit var nombre: String
+    open var nombre: String = ""
 
     @Column
     open var afiliados: Int = 0
