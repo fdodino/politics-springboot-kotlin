@@ -154,11 +154,12 @@ class PoliticsBootstrap : InitializingBean {
         val listaZonas = repoZonas.findByDescripcion(zona.descripcion)
         if (listaZonas.isEmpty()) {
             repoZonas.save(zona)
-            println("Zona " + zona.descripcion + " creada")
+            println("Zona ${zona.descripcion} creada")
         } else {
             val zonaBD = listaZonas.first()
             zona.id = zonaBD.id
             repoZonas.save(zona)
+            println("Zona ${zona.descripcion} actualizada")
         }
     }
 
@@ -169,6 +170,7 @@ class PoliticsBootstrap : InitializingBean {
         this.initPartidos()
         this.initCandidatos()
         this.initZonas()
+        println("------------------------------------------------------------------------")
     }
 
 }

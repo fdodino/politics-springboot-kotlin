@@ -23,4 +23,4 @@ server:
 # Para activar el Trace
 logging:
   level:
-    root: INFO
+    root: DEBUG
