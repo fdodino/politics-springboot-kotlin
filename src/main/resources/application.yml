@@ -1,9 +1,6 @@
 spring:
   #   base de datos posta
 
-  main:
-    web-application-type: none
-
   datasource:
     url: jdbc:postgresql://dpg-cgd37nu4dad6fr0ikjh0-a.oregon-postgres.render.com:5432/politics
     username: admin
@@ -26,5 +23,5 @@ server:
 # Para activar el Trace
 logging:
   level:
-    root: DEBUG
+    root: INFO
 
