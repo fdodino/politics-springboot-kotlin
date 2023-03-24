@@ -1,24 +1,25 @@
 spring:
-  #   base de datos posta
-
-#  datasource:
-#    url: jdbc:postgresql://dpg-cgd37nu4dad6fr0ikjh0-a.oregon-postgres.render.com:5432/politics
-#    username: admin
-#    password: QLcHKv9p6brNYlr7aCkrbPsdec58GwgN
-#    driver-class-name: org.postgresql.Driver
-
-  database: H2
-
-  h2:
-    console:
-      enabled: true
-      path: /h2
-
+  # base de datos en la nube -> Render
   datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://dpg-cgd37nu4dad6fr0ikjh0-a.oregon-postgres.render.com:5432/politics
+    username: admin
+    password: QLcHKv9p6brNYlr7aCkrbPsdec58GwgN
+    driver-class-name: org.postgresql.Driver
+
+
+# alternativa, usar una base in-memory H2
+#  database: H2
+#
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2
+#
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password: sa
+#    driver-class-name: org.h2.Driver
 
   jpa:
     open-in-view: false
