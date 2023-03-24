@@ -167,9 +167,9 @@ class PoliticsBootstrap : InitializingBean {
         println("************************************************************************")
         println("Running initialization")
         println("************************************************************************")
-//        this.initPartidos()
-//        this.initCandidatos()
-//        this.initZonas()
+        this.initPartidos()
+        this.initCandidatos()
+        this.initZonas()
         println("------------------------------------------------------------------------")
     }
 
