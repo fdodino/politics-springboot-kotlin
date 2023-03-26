@@ -8,5 +8,5 @@ RUN gradle bootJar --no-daemon
 # ejecutamos el JAR resultante
 FROM amazoncorretto:17.0.5
 EXPOSE 8080
-COPY --from=build /home/gradle/src/build/libs/eg-politics-springboot-kotlin-0.0.1-SNAPSHOT.jar /app.jar
+COPY --from=build /home/gradle/src/build/libs/politics-springboot-kotlin-0.0.1-SNAPSHOT.jar /app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]

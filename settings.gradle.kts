@@ -1,1 +1,1 @@
-rootProject.name = "eg-politics-springboot-kotlin"
+rootProject.name = "politics-springboot-kotlin"
