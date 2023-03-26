@@ -261,8 +261,25 @@ Aceptás darle acceso a dichos repositorios y a continuación te aparecerán en 
 
 ![railway settings](./images/railway-02-variables-settings.gif)
 
-Cuando termine de levantarse el contenedor se verá reflejado en nuestro dashboard:
+Cuando termine de levantarse el contenedor se verá reflejado en nuestro dashboard. Si configuramos la opción `Check suites`, vas a ver que cuando hagas un push primero estará esperando (`Waiting`) a que complete exitosamente el CI y luego sí hará el deploy. Podés ver los logs:
 
+![railway building](./images/railway-03-building.gif)
+
+Ahora sí podemos consultar cualquier endpoint desde un cliente REST. Tenemos que utilizar el dominio que nos provee Railway desde la solapa Settings, como se muestra a continuación:
+
+![railway insomnia endpoint](./images/railway-04-connecting-insomnia.gif)
+
+Como el tiempo que mantenemos la aplicación levantada nos consume horas, cuando no necesitamos hacer más pruebas lo conveniente es remover la aplicación (para volverla a tener activa se puede hacer un `Rollback` que es bastante rápido porque no involucra hacer un despliegue):
+
+![railway remove app](./images/railway-05-remove-app.gif)
+
+Dejamos a continuación el diagrama de la arquitectura hasta el momento:
+
+![deploy arquitectura fase 4](./images/deploy-arquitectura-fase-4.png)
+
+## Deploy de nuestra app React
+
+TODO: migrarla a fdodino y apuntar el link acá.
 
 
 
