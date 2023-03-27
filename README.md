@@ -281,4 +281,3 @@ Dejamos a continuación el diagrama de la arquitectura hasta el momento:
 
 Podés ver en [este repo](https://github.com/fdodino/politics-react) la explicación de cómo se despliega la app React en la nube que se conecta a este backend.
 
-
