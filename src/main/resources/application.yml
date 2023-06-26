@@ -1,9 +1,9 @@
 spring:
   # base de datos en la nube -> Render
   datasource:
-    url: jdbc:postgresql://dpg-ci6e15dgkuvvgcebilcg-a.oregon-postgres.render.com/politics_s19w
+    url: jdbc:postgresql://dpg-cid07eh5rnuhheu3vv10-a.oregon-postgres.render.com/politics_data_ish7
     username: admin
-    password: V44PT2a6RDEMY1OPkaEUSJSTJmUhB15Y
+    password: BX7FjInjRpG7cCqVv0W8Jf4wiqX1zNCl
     driver-class-name: org.postgresql.Driver
 
 # alternativa, usar una base in-memory H2
@@ -19,7 +19,7 @@ spring:
 #    username: sa
 #    password: sa
 #    driver-class-name: org.h2.Driver
-
+#
   jpa:
     open-in-view: false
     show-sql: true
