@@ -231,7 +231,7 @@ Dejamos el resumen de la arquitectura de este tercer approach:
 
 ![arquitectura dockerfile local](./images/deploy-arquitectura-fase-3.png)
 
-## Deploy en Railway
+## Deploy en Railway (Deprecado)
 
 Ahora que sabemos que la imagen funciona para un contenedor local, vamos a desplegarlo (deployarlo) en la nube.
 
@@ -276,6 +276,10 @@ Como el tiempo que mantenemos la aplicación levantada nos consume horas, cuando
 Dejamos a continuación el diagrama de la arquitectura hasta el momento:
 
 ![deploy arquitectura fase 4](./images/deploy-arquitectura-fase-4.png)
+
+## Deploy en Render (nueva versión)
+
+Revisar https://www.youtube.com/watch?v=-Ih_ky5HMEA
 
 ## Deploy de nuestra app React
 
