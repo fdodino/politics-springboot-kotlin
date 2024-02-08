@@ -1,24 +1,24 @@
 spring:
   # base de datos en la nube -> Render
-#  datasource:
-#    url: jdbc:postgresql://dpg-cid07eh5rnuhheu3vv10-a.oregon-postgres.render.com/politics_data_ish7
-#    username: admin
-#    password: BX7FjInjRpG7cCqVv0W8Jf4wiqX1zNCl
-#    driver-class-name: org.postgresql.Driver
+  datasource:
+    url: jdbc:postgresql://dpg-cn21krv109ks7392ulv0-a.oregon-postgres.render.com/politics_ggrc
+    username: admin
+    password: gawO59X7ukc8ZlzBs6NembvqYVuW2kCb
+    driver-class-name: org.postgresql.Driver
 
 # alternativa, usar una base in-memory H2
 #  database: H2
 #
-  h2:
-    console:
-      enabled: true
-      path: /h2
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2
 #
-  datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password: sa
-    driverClassName: org.h2.Driver
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password: sa
+#    driverClassName: org.h2.Driver
 #
   jpa:
     open-in-view: false
@@ -37,4 +37,3 @@ server:
 logging:
   level:
     root: INFO
-

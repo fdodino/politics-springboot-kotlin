@@ -231,55 +231,33 @@ Dejamos el resumen de la arquitectura de este tercer approach:
 
 ![arquitectura dockerfile local](./images/deploy-arquitectura-fase-3.png)
 
-## Deploy en Railway (Deprecado)
-
-Ahora que sabemos que la imagen funciona para un contenedor local, vamos a desplegarlo (deployarlo) en la nube.
-
-[Railway](https://railway.app/) nos ofrece la posibilidad de hostear diferentes tipos de aplicación, podés consultar [los diferentes planes que tiene](https://railway.app/pricing). Al momento de escribir el README podemos utilizar 500 horas o u$s 5.00 **por mes** que se van renovando. La buena noticia es que en el [dashboard](https://railway.app/dashboard) te avisa en todo momento cuántas horas y u$s utilizaste:
-
-![railway dashboard trial](./images/railway-dashboard-trial.png)
-
-La forma de publicar la aplicación es realmente sencilla:
-
-- ingresá con tu cuenta de github
-- en el Dashboard tenés un botón New, que abre una serie de opciones
-- elegís `Github Repo`
-- la primera vez tenés que agregar permisos a Railway para que pueda encontrar los repositorios de tu organización o usuario:
-
-![Railway - Github app permissions](./images/railway-01-github-app-permissions.gif)
-
-Aceptás darle acceso a dichos repositorios y a continuación te aparecerán en la lista para poder hacer el deploy.
-
-- seleccionás el repositorio que quieras deployar
-- y ¡listo! automáticamente se inicia el deploy
-- es necesario configurar en una variable cuál es el puerto donde va a estar escuchando pedidos nuestra aplicación, para eso hacemos click sobre la aplicación `politics-springboot-kotlin`, solapa Variables, New Variable > `PORT` es el VARIABLE_NAME y `8080` el VALUE
-- en Settings podés ver otras configuraciones como
-  - qué rama asociada genera automáticamente un deploy con cada push (por defecto `master` o `main`)
-  - la opción `Check suites` que permite esperar a que pase el CI antes de hacer el deploy (**algo recomendable**)
-  - el dominio que te va a permitir construir la URL para hacer pedidos, ya sea desde la app React o via Insomnia
-  - y otras opciones
-
-![railway settings](./images/railway-02-variables-settings.gif)
-
-Cuando termine de levantarse el contenedor se verá reflejado en nuestro dashboard. Si configuramos la opción `Check suites`, vas a ver que cuando hagas un push primero estará esperando (`Waiting`) a que complete exitosamente el CI y luego sí hará el deploy. Podés ver los logs:
-
-![railway building](./images/railway-03-building.gif)
-
-Ahora sí podemos consultar cualquier endpoint desde un cliente REST. Tenemos que utilizar el dominio que nos provee Railway desde la solapa Settings, como se muestra a continuación:
-
-![railway insomnia endpoint](./images/railway-04-connecting-insomnia.gif)
-
-Como el tiempo que mantenemos la aplicación levantada nos consume horas, cuando no necesitamos hacer más pruebas lo conveniente es remover la aplicación (para volverla a tener activa se puede hacer un `Rollback` que es bastante rápido porque no involucra hacer un despliegue):
-
-![railway remove app](./images/railway-05-remove-app.gif)
-
-Dejamos a continuación el diagrama de la arquitectura hasta el momento:
-
-![deploy arquitectura fase 4](./images/deploy-arquitectura-fase-4.png)
-
 ## Deploy en Render (nueva versión)
 
-Revisar https://www.youtube.com/watch?v=-Ih_ky5HMEA
+En base a [este tutorial](https://www.youtube.com/watch?v=-Ih_ky5HMEA) vamos a desplegar (hacer el deploy) de nuestra app Springboot, para lo cual
+
+- Seleccionamos New > Web service
+
+![New web service](./images/render-11-new-web-service.png)
+
+- A continuación elegimos que el origen del web service sea Github Repo:
+
+![Github Repo](./images/render-12-github-repo.png)
+
+- Seleccionamos el repositorio en cuestión (podemos buscarlo con el texto):
+
+![Select Repo](./images/render-13-select-repo.png)
+
+- En la solapa Settings vamos a ver la configuración de la aplicación:
+
+![Settings](./images/render-14-settings.png)
+
+- Un dato importante es que hay que configurar el puerto para exponer el servicio (definir la variable `PORT` con el valor `8080`):
+
+![Environment Variables](./images/render-15-env-variables.png)
+
+- Luego hay que restartear el servicio
+
+
 
 ## Deploy de nuestra app React
 

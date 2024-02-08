@@ -36,13 +36,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     // conexión a la base de datos
-//    runtimeOnly("org.postgresql:postgresql")
+    implementation("org.postgresql:postgresql")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     // testing
-    implementation("com.h2database:h2:2.2.224")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+//    implementation("com.h2database:h2:2.2.224")
+//    testImplementation("org.springframework.boot:spring-boot-starter-test")
+//    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
 //    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
 //    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.2")
