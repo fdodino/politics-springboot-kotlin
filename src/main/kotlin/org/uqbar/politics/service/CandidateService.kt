@@ -1,6 +1,6 @@
 package org.uqbar.politics.service
 
-import jakarta.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -14,13 +14,14 @@ class CandidateService {
     @Autowired
     lateinit var candidateRepository: CandidateRepository
 
-    @Transactional(Transactional.TxType.NEVER)
+    @Transactional(readOnly = true)
     fun getCandidate(id: Long): Candidate =
         candidateRepository.findById(id).orElseThrow {
             ResponseStatusException(HttpStatus.NOT_FOUND, "El candidato con identificador $id no existe")
         }
 
-    @Transactional(Transactional.TxType.REQUIRED)
+    // https://stackoverflow.com/questions/7125837/why-does-transaction-roll-back-on-runtimeexception-but-not-sqlexceptionAdd commentMore actions
+    @Transactional(rollbackFor = [Exception::class])
     fun actualizarCandidate(candidateNuevo: Candidate, id: Long): Candidate {
         return candidateRepository
             .findById(id)
@@ -31,11 +32,11 @@ class CandidateService {
                     candidate.votos = candidateNuevo.votos
                 }
                 // el save no es obligatorio si utilizamos la anotación
-                // @Transactional(Transactional.TxType.SUPPORTS)
-                candidateRepository.save(candidate)
-                // con REQUIRED nos aseguramos que una Runtime Exception
-                // rollbackea la actualización de la base
-                // if (true) throw RuntimeException("Kawabunga!")
+                // candidateRepository.save(candidate)
+                // rollbackea por una runtime exception
+                // throw RuntimeException("Che, se rompió, se rompió")
+                // no rollbackea por una Exception
+                // y sí por una SQL Exception
                 //
                 candidate
             }

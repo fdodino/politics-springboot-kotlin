@@ -3,8 +3,8 @@ package org.uqbar.politics.domain
 import com.fasterxml.jackson.annotation.JsonView
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
 import org.uqbar.politics.domain.exceptions.UserException
@@ -18,15 +18,15 @@ import org.uqbar.politics.serializers.View
 class Zona {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(View.Zona.Plana::class, View.Zona.Detalle::class)
     var id: Long? = null
 
-    @Column(length=150)
+    @Column(length=50)
     @JsonView(View.Zona.Plana::class, View.Zona.Detalle::class)
     var descripcion: String = ""
 
-    @OneToMany(fetch= FetchType.LAZY)
+    @OneToMany
     @JsonView(View.Zona.Detalle::class)
     lateinit var candidates: MutableSet<Candidate>
 

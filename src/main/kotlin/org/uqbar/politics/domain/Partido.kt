@@ -22,7 +22,8 @@ import java.time.LocalDate
 @Inheritance(strategy= InheritanceType.JOINED)
 abstract class Partido {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @JsonView(View.Zona.Detalle::class)
     open var id: Long? = null
 
@@ -30,7 +31,6 @@ abstract class Partido {
     @JsonView(View.Zona.Detalle::class)
     open lateinit var nombre: String
 
-    @Column
     open var afiliados: Int = 0
 
     open fun validar() {
@@ -48,13 +48,11 @@ abstract class Partido {
 
 @Entity
 class Peronista : Partido() {
-    @Column
     var populista = false
 }
 
 @Entity
 class Preservativo : Partido() {
-    @Column
     var fechaCreacion: LocalDate = LocalDate.now()
 
     override fun validar() {

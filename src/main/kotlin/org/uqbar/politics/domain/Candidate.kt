@@ -2,7 +2,6 @@ package org.uqbar.politics.domain
 
 import com.fasterxml.jackson.annotation.JsonView
 import jakarta.persistence.CascadeType
-import jakarta.persistence.Column
 import jakarta.persistence.ElementCollection
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
@@ -21,7 +20,6 @@ class Candidate {
     @JsonView(View.Zona.Detalle::class)
     var id: Long? = null
 
-    @Column(length=150)
     @JsonView(View.Zona.Detalle::class)
     var nombre = ""
 

@@ -1,5 +1,5 @@
 # generamos fat jar de Politics Spring boot app con gradle
-FROM gradle:8.6-jdk21 AS build
+FROM gradle:8.7-jdk21 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 ADD . /home/gradle/src
 WORKDIR /home/gradle/src

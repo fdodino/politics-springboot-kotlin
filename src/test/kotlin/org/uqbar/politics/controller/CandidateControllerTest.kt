@@ -44,7 +44,7 @@ class CandidateControllerTest {
         candidate.reset()
         candidate.votar()
         val responseEntity = mockMvc.perform(
-            MockMvcRequestBuilders.put("/candidates/" + candidate.id)
+            MockMvcRequestBuilders.patch("/candidates/" + candidate.id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(candidate))
         ).andReturn().response
@@ -73,7 +73,7 @@ class CandidateControllerTest {
         // - no pasamos votos
         // - pasamos una nueva lista de promesas
         mockMvc.perform(
-            MockMvcRequestBuilders.put("/candidates/" + candidate.id)
+            MockMvcRequestBuilders.patch("/candidates/" + candidate.id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(Candidate().apply {
                     agregarPromesa("Promocionar a todes les alumnes")
@@ -93,7 +93,7 @@ class CandidateControllerTest {
     @Transactional
     fun `actualizar un candidate inexistente devuelve un codigo de http 404`() {
         mockMvc.perform(
-            MockMvcRequestBuilders.put("/candidates/3253532")
+            MockMvcRequestBuilders.patch("/candidates/3253532")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(Candidate().apply {
                     agregarPromesa("Promocionar a todes les alumnes")
