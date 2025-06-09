@@ -17,7 +17,10 @@ class ZonaController {
 
     @GetMapping("")
     @JsonView(View.Zona.Plana::class)
-    fun getZonas(): Iterable<Zona> = zonaService.getZonas()
+    fun getZonas(): Iterable<Zona> {
+        println("IUJUUUUUUUUUUUUUUUU HASTA AQUI LLEGUE CON FOGLIA")
+        return zonaService.getZonas()
+    }
 
     @GetMapping("/{id}")
     @JsonView(View.Zona.Detalle::class)
